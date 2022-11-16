@@ -2,6 +2,8 @@
 // @require core/cash.ts
 // @require core/type_checking.ts
 // @require collection/each.ts
+// @require manipulation/append.ts
+// @require manipulation/empty.ts
 
 interface Cash {
   html (): string;
@@ -20,7 +22,7 @@ function html ( this: Cash, html?: string ) {
 
     if ( !isElement ( ele ) ) return;
 
-    ele.innerHTML = html;
+    cash ( ele ).empty ().append ( html );
 
   });
 
